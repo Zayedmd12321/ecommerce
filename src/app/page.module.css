@@ -1,141 +1,135 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
+/* File: app/page.module.css */
 
-  --text-primary: #000;
-  --text-secondary: #666;
+.searchContainer {
+  margin-top: 2.5rem; /* More space from hero */
+}
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
+/* NEW: Flex container for search and filter */
+.controlsContainer {
   display: flex;
-  min-height: 100vh;
+  flex-wrap: wrap; /* Allows wrapping on small screens */
+  gap: 1rem;
+  margin-bottom: 2.5rem;
   align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
 }
 
-.main {
+.searchBar {
+  /* REMOVED: max-width: 600px; */
+  /* REMOVED: margin-bottom: 2.5rem; */
+  flex-grow: 1; /* Allows search bar to fill space */
+  min-width: 250px; /* Prevents it from getting too small */
+
+  /* Add a search icon inside the input */
+  padding-left: 2.5rem;
+  background-repeat: no-repeat;
+  background-position: 1rem center;
+
+  /* --- FIX: Light Mode Icon (Dark Gray) --- */
+  /* Hard-coded fill='%234a5568' (dark gray) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%234a5568' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
+  transition: background-image 0.3s ease; /* Add transition */
+}
+
+/* --- FIX: Dark Mode Icon (White) --- */
+/* Use :global() to target the data-theme attribute from a CSS Module */
+:global([data-theme='dark']) .searchBar {
+  /* Hard-coded fill='%23FFFFFF' (White) */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23FFFFFF' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
+}
+
+/* NEW: Style for the category dropdown */
+.categoryFilter {
+  min-width: 200px;
+  flex-basis: 200px; /* Gives it a consistent base size */
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Product Card Redesign */
+.productCard {
+  /* This class adds to the global .card */
+  padding: 0; /* Remove default card padding */
   display: flex;
-  min-height: 100vh;
+  flex-direction: column;
+  box-shadow: var(--shadow-md);
+  overflow: hidden; /* Important for image border-radius */
+  transition: all 0.3s ease;
+}
+
+.productCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.imageLink {
+  display: block;
+  text-decoration: none;
+}
+
+.productImageWrapper {
+  position: relative;
   width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--border-color); /* Placeholder color */
 }
 
-.intro {
+/* Image zoom effect on card hover */
+.productImageWrapper img {
+  transition: transform 0.4s ease;
+}
+.productCard:hover .productImageWrapper img {
+  transform: scale(1.05);
+}
+
+/* NEW: Wrapper for all text content */
+.productContent {
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+  flex-grow: 1; /* Makes card footer (button) stick to bottom */
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
+.categoryTag {
+  align-self: flex-start; /* Don't stretch */
+  font-size: 0.75rem;
   font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--accent-color-light-bg);
+  color: var(--accent-color);
+  border-radius: 99px;
+  margin-bottom: 0.75rem;
+}
+[data-theme='dark'] .categoryTag {
+  background-color: hsla(217, 91%, 60%, 0.1);
+  color: hsl(217, 91%, 70%);
+}
+
+.productCard h3 {
+  font-size: 1.25rem;
   color: var(--text-primary);
 }
 
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
+.productPrice {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.productDescription {
+  font-size: 0.9rem;
   color: var(--text-secondary);
+  flex-grow: 1; /* Pushes the link to the bottom */
+  margin-bottom: 1.5rem;
 }
 
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
+.productLink {
+  /* This class adds to .button-primary */
   width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
-}
-
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
-}
-
-a.secondary {
-  border-color: var(--button-secondary-border);
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-}
-
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
+  text-align: center;
 }

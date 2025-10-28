@@ -1,0 +1,94 @@
+/* File: app/components/navbar.css */
+
+/* 1. "Glassmorphism" Header */
+.main-header {
+  width: 100%;
+  padding: 1.25rem 2rem;
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.main-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  color: var(--text-primary); /* Base color, will be overridden by span */
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+.nav-logo:hover {
+  text-decoration: none;
+}
+.nav-logo svg {
+  color: var(--accent-color); /* Icon is solid accent color */
+}
+
+/* THIS IS THE FIX:
+  No more gradient. Just set the text color to be the 
+  solid accent color, matching the icon.
+*/
+.nav-logo-text {
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  color: var(--accent-color); /* Text is solid accent color */
+  transition: color 0.3s ease;
+}
+
+/* On hover, just change to the hover color.
+  No more gradients.
+*/
+.nav-logo:hover .nav-logo-text {
+  color: var(--accent-color-hover);
+}
+
+/* 2. Appealing Nav Links */
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+}
+.nav-links a {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  background-color: var(--card-color);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+/* Active link underline effect */
+.nav-links a.active {
+  color: var(--text-primary);
+}
+
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0.75rem;
+  right: 0.75rem;
+  height: 3px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+}

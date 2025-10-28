@@ -1,0 +1,111 @@
+/* File: app/components/footer.css */
+
+.main-footer {
+  width: 100%;
+  padding: 4rem 2rem;
+  background-color: var(--card-color); /* Use card color for a nice contrast */
+  border-top: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(220px, 1fr)
+  ); /* Responsive columns */
+  gap: 2.5rem;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-column h4 {
+  font-family: var(--font-poppins);
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.footer-column a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+/* Brand Column */
+.brand-column {
+  gap: 1rem;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.footer-logo:hover {
+  color: var(--accent-color);
+}
+.footer-logo svg {
+  color: var(--accent-color);
+}
+.footer-logo-text {
+  font-family: var(--font-poppins);
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.footer-copyright {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: auto; /* Pushes to bottom */
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  color: var(--text-secondary);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr; /* 2 columns on tablet */
+  }
+  .brand-column {
+    grid-column: 1 / -1; /* Brand spans full width */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+}

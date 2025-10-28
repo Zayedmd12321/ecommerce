@@ -1,0 +1,345 @@
+/* File: app/admin/admin.module.css */
+
+/* 1. NEW: Login Screen Styles */
+.loginContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 2rem;
+}
+.loginCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: var(--shadow-lg);
+}
+.loginIcon {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+.loginTitle {
+  font-family: var(--font-poppins);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.loginSubtitle {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.loginError {
+  color: hsl(0, 72%, 51%);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+[data-theme='dark'] .loginError {
+  color: hsl(0, 100%, 85%);
+}
+
+/* 2. Page Header (for Admin Panel) */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+/* 3. Page Description */
+.pageDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 1.25rem;
+  background-color: var(--accent-color-light-bg);
+  border: 1px solid hsla(217, 91%, 60%, 0.3);
+  color: var(--text-secondary);
+  border-radius: var(--radius-lg);
+  margin-bottom: 2rem;
+}
+[data-theme='dark'] .pageDescription {
+  background-color: hsla(217, 91%, 60%, 0.1);
+  border-color: hsla(217, 91%, 60%, 0.5);
+}
+.pageDescription strong {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* 4. Message Boxes */
+.message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+.success {
+  background-color: hsl(145, 63%, 95%);
+  border-color: hsl(145, 63%, 80%);
+  color: hsl(145, 63%, 30%);
+}
+.error {
+  background-color: hsl(0, 100%, 97%);
+  border-color: hsl(0, 100%, 90%);
+  color: hsl(0, 72%, 51%);
+}
+[data-theme='dark'] .success {
+  background-color: hsla(145, 63%, 40%, 0.1);
+  border-color: hsla(145, 63%, 40%, 0.5);
+  color: hsl(145, 63%, 80%);
+}
+[data-theme='dark'] .error {
+  background-color: hsla(0, 72%, 51%, 0.1);
+  border-color: hsla(0, 72%, 51%, 0.5);
+  color: hsl(0, 100%, 85%);
+}
+
+/* 6. Layout */
+.adminContent {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 960px) {
+  .adminContent {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    align-items: flex-start;
+  }
+}
+
+/* 7. Form Container */
+.formContainer {
+  padding: 1.5rem 2rem;
+}
+.formContainer h2 {
+  font-family: var(--font-poppins);
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 640px) {
+  .formGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.formGroup label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.formGroupFull {
+  grid-column: 1 / -1;
+}
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* 8. Custom Buttons */
+.buttonSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--card-color);
+  color: var(--text-secondary);
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.buttonSecondary:hover {
+  background-color: var(--bg-color);
+  border-color: var(--text-secondary);
+  color: var(--text-primary);
+}
+.buttonOutline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0; /* Remove padding */
+  width: 36px; /* Set fixed width */
+  height: 36px; /* Set fixed height */
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.buttonOutline:hover {
+  background-color: var(--card-color);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+/* 9. Product List */
+.productList {
+  padding: 1.5rem 0;
+}
+.productList h2 {
+  font-family: var(--font-poppins);
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  padding: 0 1.5rem;
+}
+.listContainer {
+  display: flex;
+  flex-direction: column;
+}
+.productItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+.productItem:hover {
+  background-color: var(--accent-color-light-bg);
+}
+[data-theme='dark'] .productItem:hover {
+  background-color: hsla(217, 91%, 60%, 0.1);
+}
+.productItem:last-child {
+  border-bottom: none;
+}
+.productInfo {
+  display: flex;
+  flex-direction: column;
+}
+.productName {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.productMeta {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.loading {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* --- NEW: PRODUCT ACTIONS (for Edit/Delete buttons) --- */
+.productActions {
+  display: flex;
+  gap: 0.5rem;
+}
+.buttonOutlineDanger {
+  color: hsl(0, 72%, 51%);
+  border-color: hsl(0, 100%, 90%);
+}
+.buttonOutlineDanger:hover {
+  background-color: hsl(0, 100%, 97%);
+  border-color: hsl(0, 72%, 51%);
+  color: hsl(0, 72%, 51%);
+}
+[data-theme='dark'] .buttonOutlineDanger {
+  color: hsl(0, 100%, 85%);
+  border-color: hsla(0, 72%, 51%, 0.5);
+}
+[data-theme='dark'] .buttonOutlineDanger:hover {
+  background-color: hsla(0, 72%, 51%, 0.1);
+  border-color: hsl(0, 100%, 85%);
+  color: hsl(0, 100%, 85%);
+}
+
+/* --- NEW: MODAL STYLES --- */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+}
+.modalContent {
+  /* Uses .card */
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: var(--shadow-lg);
+  z-index: 101;
+}
+.modalHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.modalHeader h3 {
+  font-family: var(--font-poppins);
+  color: var(--text-primary);
+  font-size: 1.25rem;
+}
+.modalIconError {
+  color: hsl(0, 72%, 51%);
+}
+.modalBody {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.modalBody p {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+.modalBody p strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+.buttonDanger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: hsl(0, 72%, 51%);
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid hsl(0, 72%, 51%);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.buttonDanger:hover {
+  background-color: hsl(0, 80%, 60%);
+  border-color: hsl(0, 80%, 60%);
+}
+

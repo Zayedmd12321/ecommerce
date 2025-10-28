@@ -1,0 +1,236 @@
+/* File: app/dashboard/dashboard.module.css */
+
+/* 1. Page Description Box */
+.pageDescription {
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 1.25rem;
+  /* Use theme variables */
+  background-color: var(--accent-color-light-bg);
+  border: 1px solid hsla(217, 91%, 60%, 0.3);
+  color: var(--text-secondary);
+  border-radius: var(--radius-lg);
+  margin: 1rem 0 2.5rem 0;
+}
+[data-theme='dark'] .pageDescription {
+  background-color: hsla(217, 91%, 60%, 0.1);
+  border-color: hsla(217, 91%, 60%, 0.5);
+  color: var(--text-secondary);
+}
+.pageDescription strong {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+/* 2. Stat Cards */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.statCard {
+  /* Use the .card styles from globals.css */
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+.statCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.iconWrapper {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+/* Eye-catchy icon backgrounds */
+.iconProducts {
+  background: var(--accent-color);
+  box-shadow: 0 4px 12px hsla(217, 91%, 60%, 0.4);
+}
+.iconInventory {
+  background: hsl(160, 64%, 43%); /* Green */
+  box-shadow: 0 4px 12px hsla(160, 64%, 43%, 0.4);
+}
+.iconValue {
+  background: hsl(38, 92%, 50%); /* Orange */
+  box-shadow: 0 4px 12px hsla(38, 92%, 50%, 0.4);
+}
+
+/* --- THIS IS THE FIX --- */
+.statContent {
+  flex-grow: 1; /* Allows this part to fill the remaining space */
+  min-width: 0; /* Prevents text from overflowing */
+}
+/* ------------------------ */
+
+.statContent h3 {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+/* --- THIS IS THE FIX --- */
+.statValue {
+  font-size: 2rem;
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  white-space: nowrap; /* Prevents text from wrapping */
+  overflow: hidden; /* Safety */
+  text-overflow: ellipsis; /* Safety */
+}
+/* ------------------------ */
+
+/* 3. Section Header (for h2) */
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  font-family: var(--font-poppins);
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.sectionHeader svg {
+  color: hsl(38, 92%, 50%); /* Orange warning color */
+}
+
+/* 4. Table */
+.tableContainer {
+  /* Use .card from globals, but add overflow */
+  padding: 0; /* Table will have its own padding */
+  overflow-x: auto; /* MAKES TABLE RESPONSIVE */
+  box-shadow: var(--shadow-md);
+}
+
+.lowStockTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lowStockTable th,
+.lowStockTable td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.lowStockTable th {
+  background-color: var(--bg-color);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  /* Sticky header for scrolling tables */
+  position: sticky;
+  top: 0;
+}
+[data-theme='dark'] .lowStockTable th {
+  background-color: hsl(222, 47%, 15%);
+}
+
+.lowStockTable tbody tr {
+  transition: background-color 0.2s ease;
+}
+.lowStockTable tbody tr:hover {
+  background-color: var(--accent-color-light-bg);
+}
+[data-theme='dark'] .lowStockTable tbody tr:hover {
+  background-color: hsla(217, 91%, 60%, 0.1);
+}
+
+.lowStockTable tr:last-child td {
+  border-bottom: none;
+}
+
+.lowStockTable td:first-child {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.categoryTag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--accent-color-light-bg);
+  color: var(--accent-color);
+  border-radius: 99px;
+  display: inline-block;
+}
+[data-theme='dark'] .categoryTag {
+  background-color: hsla(217, 91%, 60%, 0.1);
+  color: hsl(217, 91%, 70%);
+}
+
+/* Style for the low stock number */
+.lowStockValue {
+  font-weight: 700;
+  font-family: var(--font-poppins);
+  color: hsl(0, 72%, 51%); /* Red */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+/* Red dot */
+.lowStockValue::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: hsl(0, 72%, 51%);
+  animation: pulse 1.5s infinite;
+}
+
+/* 5. Empty State */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+}
+.emptyState svg {
+  color: hsl(160, 64%, 43%); /* Green */
+  margin-bottom: 1rem;
+}
+.emptyState h3 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+/* 6. Animations */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 hsla(0, 72%, 51%, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px hsla(0, 72%, 51%, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 hsla(0, 72%, 51%, 0);
+  }
+}
