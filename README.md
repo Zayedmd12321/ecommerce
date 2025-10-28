@@ -6,7 +6,7 @@ A modern, full-stack **e-commerce platform** built with **Next.js (App Router)**
 
 ## Live Links  
 
-- **Frontend (Vercel):** [https://ecommerce-task-12321.app](https://ecommerce-task-12321.app)   
+- **Frontend (Vercel):** [https://ecommerce-task-12321.vercel.app](https://ecommerce-task-12321.vercel.app)   
 - **GitHub Repository:** [https://github.com/Zayedmd12321/ecommerce](https://github.com/Zayedmd12321/ecommerce)
 
 ---
@@ -115,9 +115,9 @@ This project leverages **Next.js rendering strategies** for optimal performance 
 | Page / Route         | Rendering Strategy | Rationale |
 |----------------------|--------------------|------------|
 | `/` (Homepage)       | **SSG (Static Site Generation)** | Static content that changes rarely — best performance and SEO |
-| `/dashboard`         | **CSR (Client-Side Rendering)** | Personalized user data fetched dynamically |
+| `/dashboard`         | **CSR (Client-Side Rendering)** | Data of inventory fetched dynamically |
 | `/products/[slug]`   | **SSR (Server-Side Rendering)** | Frequently updated product data (pricing, stock, etc.) |
-| `/blog`              | **ISR (Incremental Static Regeneration)** | Periodic updates (every 60s) for freshness without full rebuild |
+| `/admin`             | **CSR (Client-Side Rendering)** | Can add or edit any item in inventory |
 
 ---
 
@@ -162,7 +162,9 @@ public/
 ### Author
 
 **Md Zayed Ghanchi**
+
 🖥️ GitHub: [https://github.com/Zayedmd12321](https://github.com/Zayedmd12321)
+
 📧 Email: [eagle.zayed@gmail.com](mailto:eagle.zayed@gmail.com)
 
 ---
