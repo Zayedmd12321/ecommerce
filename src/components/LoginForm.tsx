@@ -39,7 +39,7 @@ export default function LoginForm({ pageTitle, pageSubtitle }: LoginFormProps) {
             className="input-field"
             value={pinInput}
             onChange={(e) => setPinInput(e.target.value)}
-            placeholder="Enter your secret ADMIN Key"
+            placeholder="Enter your secret ADMIN Key (key= 1)"
           />
         </div>
         {loginError && <p className={styles.loginError}>{loginError}</p>}
