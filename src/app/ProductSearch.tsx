@@ -80,7 +80,7 @@ export default function ProductSearch({ products }: Props) {
               >
                 <div className={styles.productImageWrapper}>
                   <Image
-                    src={product.imageUrl}
+                    src={product.imageUrl?product.imageUrl:''}
                     alt={product.name}
                     fill
                     style={{ objectFit: 'cover' }}
