@@ -21,6 +21,9 @@ const poppins = Poppins({
 export const metadata = {
   title: 'Next.js E-Commerce Store',
   description: 'A demo app showing different rendering strategies.',
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
